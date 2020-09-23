@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Namluu_Helloadmin::helloadmin"
+            title="HelloAdmin"
+            module="Namluu_Helloadmin"
+            sortOrder="150"
+            parent="Magento_Backend::marketing"
+            resource="Namluu_Helloadmin::helloadmin"
+        />
+        <add
+            id="Namluu_Helloadmin::index"
+            title="Helloadmin Index"
+            module="Namluu_Helloadmin"
+            sortOrder="155"
+            parent="Namluu_Helloadmin::helloadmin"
+            action="helloadmin/index/"
+            resource="Namluu_Helloadmin::index"
+        />
+    </menu>
+</config>

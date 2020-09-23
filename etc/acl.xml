@@ -9,6 +9,13 @@
                         <resource id="Namluu_Helloadmin::index" title="HelloAdmin index" />
                     </resource>
                 </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Namluu_Helloadmin::config_helloadmin" title="HelloAdmin Section" />
+                        </resource>
+                    </resource>
+                </resource>
             </resource>
         </resources>
     </acl>

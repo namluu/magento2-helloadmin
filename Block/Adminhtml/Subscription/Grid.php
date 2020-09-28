@@ -52,7 +52,14 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     {
         $this->addColumn('title', ['header' => __('Title'), 'index' => 'title']);
 
-        $this->addColumn('identifier', ['header' => __('URL Key'), 'index' => 'identifier']);
+        $this->addColumn(
+            'identifier',
+            [
+                'header' => __('URL Key'),
+                'index' => 'identifier',
+                'frame_callback' => [$this, 'decorateStatus']
+            ]
+        );
 
         $this->addColumn(
             'is_active',
@@ -65,5 +72,22 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
         );
 
         return $this;
+    }
+
+    public function decorateStatus($value)
+    {
+        switch ($value) {
+            case 'no-route':
+                $class = 'grid-severity-critical';
+                break;
+            case 'home':
+                $class = 'grid-severity-notice';
+                break;
+            case 'about-us':
+            default:
+                $class = 'grid-severity-minor';
+                break;
+        }
+        return '<span class="' . $class . '"><span>' . $value . '</span></span>';
     }
 }

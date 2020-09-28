@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Namluu\Helloadmin\Block\Adminhtml\Subscription"
+                name="adminhtml.block.helloadmin.subscription.container">
+                <block class="Namluu\Helloadmin\Block\Adminhtml\Subscription\Grid"
+                    name="adminhtml.block.helloadmin.subscription.grid" as="grid" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

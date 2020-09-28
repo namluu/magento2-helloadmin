@@ -17,6 +17,11 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('Namluu_Helloadmin::index');
+        $resultPage->addBreadcrumb(__('HelloAdmin'), __('HelloAdmin'));
+        $resultPage->addBreadcrumb(__('Manage Subscriptions'), __('Manage Subscriptions'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Subscriptions'));
+
         return $resultPage;
     }
 

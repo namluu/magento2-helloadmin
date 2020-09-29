@@ -19,5 +19,14 @@
             action="helloadmin/index/"
             resource="Namluu_Helloadmin::index"
         />
+        <add
+            id="Namluu_Helloadmin::uindex"
+            title="Helloadmin UI Index"
+            module="Namluu_Helloadmin"
+            sortOrder="160"
+            parent="Namluu_Helloadmin::helloadmin"
+            action="helloadmin/uindex/"
+            resource="Namluu_Helloadmin::index"
+        />
     </menu>
 </config>

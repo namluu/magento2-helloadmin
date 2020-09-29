@@ -13,6 +13,10 @@
                 <label translate="true">Add New Page</label>
             </button>
         </buttons>
+        <spinner>helloadmin_uindex_columns</spinner>
+        <deps>
+            <dep>helloadmin_uindex_listing.helloadmin_uindex_listing_data_source</dep>
+        </deps>
     </settings>
     <dataSource name="helloadmin_uindex_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
@@ -29,32 +33,6 @@
             </settings>
         </dataProvider>
     </dataSource>
-    <listingToolbar name="listing_top">
-        <settings>
-            <sticky>true</sticky>
-        </settings>
-        <bookmark name="bookmarks"/>
-        <columnsControls name="columns_controls"/>
-        <filterSearch name="fulltext"/>
-        <filters name="listing_filters">
-            <argument name="data" xsi:type="array">
-                <item name="observers" xsi:type="array">
-                    <item name="column" xsi:type="string">column</item>
-                </item>
-            </argument>
-            <settings>
-                <templates>
-                    <filters>
-                        <select>
-                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
-                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
-                        </select>
-                    </filters>
-                </templates>
-            </settings>
-        </filters>
-        <paging name="listing_paging"/>
-    </listingToolbar>
     <columns name="helloadmin_uindex_columns">
         <selectionsColumn name="ids">
             <settings>
@@ -67,7 +45,7 @@
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">ID</label>
-<!--                <sorting>asc</sorting>-->
+                <sorting>asc</sorting>
             </settings>
         </column>
         <column name="title">
@@ -94,12 +72,5 @@
                 <label translate="true">URL Key</label>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Namluu\Helloadmin\Ui\Component\Listing\Column\PageActions">
-            <settings>
-                <indexField>page_id</indexField>
-                <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>107</resizeDefaultWidth>
-            </settings>
-        </actionsColumn>
     </columns>
 </listing>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">helloadmin_uindex_form.helloadmin_uindex_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Page Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Magento\Cms\Block\Adminhtml\Page\Edit\SaveButton"/>
+            <button name="delete" class="Magento\Cms\Block\Adminhtml\Page\Edit\DeleteButton"/>
+            <button name="back" class="Namluu\Helloadmin\Block\Adminhtml\Subscription\Edit\BackButton"/>
+        </buttons>
+        <namespace>helloadmin_uindex_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>helloadmin_uindex_form.helloadmin_uindex_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="helloadmin_uindex_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="cms/page/save"/>
+        </settings>
+        <dataProvider class="Magento\Cms\Model\Page\DataProvider" name="helloadmin_uindex_form_data_source">
+            <settings>
+                <requestFieldName>page_id</requestFieldName>
+                <primaryFieldName>page_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="page_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>page_id</dataScope>
+            </settings>
+        </field>
+        <field name="is_active" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable Page</label>
+                <dataScope>is_active</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="title" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Page Title</label>
+                <dataScope>title</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="design" sortOrder="50">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Design</label>
+        </settings>
+        <field name="page_layout" formElement="select" class="Magento\Cms\Ui\Component\Form\Field\PageLayout">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Layout</label>
+                <dataScope>page_layout</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Cms\Model\Page\Source\PageLayout"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="layout_update_xml" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="disabled" xsi:type="boolean">true</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Layout Update XML</label>
+                <dataScope>layout_update_xml</dataScope>
+            </settings>
+        </field>
+        <field name="custom_layout_update_select" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Custom Layout Update</label>
+                <tooltip>
+                    <description translate="true">
+                        List of layout files with an update handle "selectable"
+                        matching *PageIdentifier*_*UpdateID*.
+                        &lt;br/&gt;
+                        See Magento documentation for more information
+                    </description>
+                </tooltip>
+                <dataScope>layout_update_selected</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

@@ -72,5 +72,12 @@
                 <label translate="true">URL Key</label>
             </settings>
         </column>
+        <actionsColumn name="actions" class="Namluu\Helloadmin\Ui\Component\Listing\Column\PageActions">
+            <settings>
+                <indexField>page_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>107</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
     </columns>
 </listing>
